@@ -1,0 +1,29 @@
+[33mcommit 16f785c5ca6871c0d952894782f16d53c99b59b5[m[33m ([m[1;36mHEAD -> [m[1;32mlogin[m[33m)[m
+Author: Camilo Vasquez <camilovasquez9738@hotmail.com>
+Date:   Mon Nov 9 20:05:19 2020 -0500
+
+    Version alternativa para login
+
+[33mcommit 983dd321f93a5f9cc63f715ee57970ddb2bb1872[m[33m ([m[1;32mmaster[m[33m)[m
+Author: Camilo Vasquez <camilovasquez9738@hotmail.com>
+Date:   Mon Nov 9 19:57:33 2020 -0500
+
+    Carpeta de components y css
+
+[33mcommit 85eb92c98fcf291409c46ad2defe3611cd799ee8[m
+Author: Camilo Vasquez <camilovasquez9738@hotmail.com>
+Date:   Mon Nov 9 19:40:25 2020 -0500
+
+    App Lista para desarrollo con todos los archivos added
+
+[33mcommit 2c87a886bb88fdd885b7d1d556157a6a24546647[m
+Author: Camilo Vasquez <camilovasquez9738@hotmail.com>
+Date:   Mon Nov 9 19:39:31 2020 -0500
+
+    App lista para desarrollo
+
+[33mcommit 5564d56fb0003216d6af98e4499a57fcb8a0392e[m
+Author: Camilo <camilovasquez9738@hotmail.com>
+Date:   Mon Nov 9 19:00:04 2020 -0500
+
+    Initialize project using Create React App

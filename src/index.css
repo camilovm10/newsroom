@@ -1,0 +1,16 @@
+html {
+    box-sizing: border-box;
+    font-size: 62.5%; /** Reset para REMS - 62.5% = 10px de 16px **/
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+body {
+    font-family: 'Lato', sans-serif;
+    font-size: 1.6rem;
+    line-height: 2;
+    margin: 0;
+    /* margin: 3rem; */
+    /* border: .5px solid rgb(214, 214, 214); */
+    /* box-shadow: 5px 0px 7px rgb(133, 133, 133); */
+}
