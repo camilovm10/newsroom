@@ -29,6 +29,8 @@ export default function Body() {
         consultarAPI();
     }, [productos])
 
+    console.log(productos);
+
     return (
         <Container>
             
@@ -39,6 +41,7 @@ export default function Body() {
                     key={producto.id}
                     id={producto.id}
                     category={producto.category}
+                    cost={producto.cost}
                 />
             ))}
             

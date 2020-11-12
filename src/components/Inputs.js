@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components/macro';
-import { headers } from '../peticiones/headers';
 
 const Container = styled.div`
         display: flex;
@@ -21,39 +20,47 @@ const Button = styled.button`
     margin: 0 15px;
     font-weight: bold;
     font-size: 16px;
+    outline: none;
+    cursor: pointer;
+    transition: all .3s ease-in;
+
+    &:hover {
+        background-color: rgba(0, 0, 0, 0.3);
+    }
 `;
 
 export default function Inputs() {
 
-    const handlePost = async (amount) => {
+    const handlePost = async (coin) => {
 
         const url = `https://coding-challenge-api.aerolab.co/user/points`;
 
-        // const consultarAPI =  () => {
-        //     const url = `https://coding-challenge-api.aerolab.co/user/points`;
-      
-        //     fetch(url, {method: "POST", headers, body: {"amount" : amount}})
-        //     .then(function(response) {
-        //         if(response.ok) {
-        //             return response.text()
-        //         } else {
-        //             throw "Error en la llamada Ajax";
-        //         }
-        //     }
-      
-        // }
-        // consultarAPI();
+        const headers = {
+            method: "POST",
+            headers: new Headers({
+                "Content-Type": "application/json",
+                Accept: "application/json",
+                Authorization: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZmFkOWMwOGI5NTIzZTAwMjA3ZTFmYzQiLCJpYXQiOjE2MDUyMTMxOTJ9.H9DQIDnHffDuJI8Kyk4NbBjbeHlGWKVujNF1Yk9I41M"
+            }),
+            body: JSON.stringify({
+                "amount": coin
+            })
+            
+        }
 
         try {
-            const fetchResponse = await fetch(url, {method: "POST", headers, mode: 'no-cors', body: {"amount" : 1000}});
+            const fetchResponse = await fetch(url, headers);
             const data = await fetchResponse.json();
-            return data;
+            return (
+                data,
+                console.log(data.message)
+            );
         } catch (e) {
             return e.message;
         }    
 
 
-        // fetch(url, {method: "POST", headers, mode: 'no-cors', body: {"amount" : 1000}})
+        // fetch(url, headers)
         // .then(function(response) {
         // if(response.ok) {
         //     return response.text()
