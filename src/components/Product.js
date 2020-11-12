@@ -46,7 +46,6 @@ export default function Product({ name, image, category, id }) {
         } catch (e) {
             return e.message;
         }    
-
     }
 
 
