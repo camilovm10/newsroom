@@ -37,6 +37,7 @@ export default function Body() {
                     name={producto.name}
                     image={producto.img.url}
                     key={producto.id}
+                    id={producto.id}
                     category={producto.category}
                 />
             ))}

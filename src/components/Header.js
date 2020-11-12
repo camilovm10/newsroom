@@ -66,7 +66,6 @@ export default function Header() {
     
         }
         consultarAPI();
-        console.log("nada", user);
     }, [user])
 
 

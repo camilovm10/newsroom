@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components/macro';
 import BuyBlueIcon from '../assets/icons/buy-blue.svg';
+import { headers } from '../peticiones/headers';
 
 const Title = styled.h3`
     font-size: 18px;
@@ -31,7 +32,24 @@ const Paragraph = styled.p`
 `;
 
 
-export default function Product({ name, image, category }) {
+export default function Product({ name, image, category, id }) {
+
+
+    const handleBuy = async () => {
+
+        const url = `https://coding-challenge-api.aerolab.co/redeem`;
+
+        try {
+            const fetchResponse = await fetch(url, {method: "POST", headers, mode: 'no-cors', body: {"amount" : id}});
+            const data = await fetchResponse.json();
+            return data;
+        } catch (e) {
+            return e.message;
+        }    
+
+    }
+
+
 
     return (
         <Container>
@@ -41,7 +59,11 @@ export default function Product({ name, image, category }) {
             </ImageContainer>
             <ContainerBuyCategory>
                 <Paragraph> {category} </Paragraph>
-                <img src={BuyBlueIcon} alt="Buy-icon" />
+                <img 
+                    onClick={handleBuy}
+                    src={BuyBlueIcon} 
+                    alt="Buy-icon" 
+                />
             </ContainerBuyCategory>
         </Container>
     )
