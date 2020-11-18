@@ -1,7 +1,8 @@
 import React from 'react';
 import styled from 'styled-components/macro';
 import BuyBlueIcon from '../assets/icons/buy-blue.svg';
-import { headers } from '../peticiones/headers';
+import Coin from '../assets/icons/coin.svg';
+import { useSelector } from 'react-redux';
 
 const Title = styled.h3`
     font-size: 18px;
@@ -29,6 +30,7 @@ const ImageContainer = styled.div`
 const ContainerBuyCategory = styled.div`
     display: flex;
     justify-content: space-around;
+    align-items: center;
 `;
 
 const Paragraph = styled.p`
@@ -38,11 +40,30 @@ const Paragraph = styled.p`
 
 const Image = styled.img`
     cursor: pointer;
+    transition: all .3s ease-in;
+
+    &:active {
+        transform: scale(1.2);
+    }
+`;
+
+const ContainerFaltanCoins = styled.div`
+    display: flex;
+    padding: 8px 20px;
+    background-color: rgba(128, 128, 128, 0.6);
+    color: white;
+    border-radius: 20px;
+`;
+
+const Parag = styled.p`
+    padding: 0;
+    margin: 0;
 `;
 
 
 export default function Product({ name, image, category, id, cost }) {
 
+    const coins = useSelector(state => state.coins);
 
     const handleBuy = async () => {
 
@@ -84,11 +105,23 @@ export default function Product({ name, image, category, id, cost }) {
             </ImageContainer>
             <ContainerBuyCategory>
                 <Paragraph> {category} </Paragraph>
-                <Image 
-                    onClick={() => handleBuy()}
-                    src={BuyBlueIcon} 
-                    alt="Buy-icon" 
-                />
+                {
+                    cost > coins ? 
+                    (
+                        <ContainerFaltanCoins>
+                            <Parag> Te faltan $ {cost - coins}  </Parag>
+                            <img src={Coin} alt="coin" />
+                        </ContainerFaltanCoins>
+                    ):
+                    (
+                        <Image 
+                            onClick={() => handleBuy()}
+                            src={BuyBlueIcon} 
+                            alt="Buy-icon" 
+                        />
+                    )
+                }
+                
             </ContainerBuyCategory>
         </Container>
     )

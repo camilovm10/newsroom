@@ -5,6 +5,7 @@ const Container = styled.div`
         display: flex;
         flex-direction: column;
         align-items: center;
+        padding: 100px 0 150px 0;
     `;
 
 const MenuButton = styled.div`

@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import Product from './Product';
-import { headers } from '../peticiones/headers';
 import styled from 'styled-components/macro';
-import { useDispatch, useSelector } from 'react-redux';
-
+import { headers } from '../peticiones/headers';
+import RedeemedProduct from './RedeemedProduct';
 
 
 const Container = styled.div`
@@ -13,32 +11,35 @@ const Container = styled.div`
     flex-wrap: wrap;
 `;
 
-export default function Body() {
+export default function Redeem() {
+
 
     const [ productos, setProductos ] = useState([]);
 
-    
+    // console.log(productos);
+
 
     useEffect(() => {
 
         const consultarAPI = async () => {
-          const url = `https://coding-challenge-api.aerolab.co/products`;
+          const url = `https://coding-challenge-api.aerolab.co/user/me`;
     
           const respuesta = await fetch(url, {method: "GET", headers});
           const productos = await respuesta.json();
     
-          setProductos(productos)
+          setProductos(productos.redeemHistory)
     
         }
         consultarAPI();
     }, [productos])
 
 
+
     return (
         <Container>
             
             {productos.map(producto => (
-                <Product 
+                <RedeemedProduct 
                     name={producto.name}
                     image={producto.img.url}
                     key={producto._id}
