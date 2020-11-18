@@ -4,13 +4,15 @@ import BuyBlueIcon from '../assets/icons/buy-blue.svg';
 import Coin from '../assets/icons/coin.svg';
 import { useSelector } from 'react-redux';
 
+import Swal from 'sweetalert2';
+
 const Title = styled.h3`
     font-size: 18px;
     text-align: center;
 `;
 
 const Container = styled.div`
-    width: 300px;
+    width: 320px;
     margin: 40px;
     border-bottom: 1px solid rgba(0, 0, 0, 0.2);
     border-right: 1px solid rgba(0, 0, 0, 0.2);
@@ -85,6 +87,11 @@ export default function Product({ name, image, category, id, cost }) {
         try {
             const fetchResponse = await fetch(url, headers);
             const data = await fetchResponse.json();
+            Swal.fire(
+                'Thanks for your Purchase!',
+                `Enjoy your ${name} !`,
+                'success'
+            )
             return (
                 data,
                 console.log(data.message)
