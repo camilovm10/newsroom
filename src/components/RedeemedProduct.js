@@ -51,7 +51,6 @@ export default function RedeemedProduct({ name, image, category, cost }) {
         <Container>
             <PriceTitleContainer>
                 <Title> {name} </Title>
-                <p> {`$ ${cost}`} </p>
             </PriceTitleContainer>
             <ImageContainer>
                 <img src={image} alt={name}/>

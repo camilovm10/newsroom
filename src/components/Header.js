@@ -123,7 +123,6 @@ export default function Header() {
         }, 300);
     }
 
-    console.log(user);
 
     useEffect(() => {
 

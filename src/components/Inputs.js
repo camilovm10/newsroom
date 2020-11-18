@@ -27,6 +27,7 @@ const Button = styled.button`
 
     &:hover {
         background-color: rgba(0, 0, 0, 0.3);
+        transform: scale(1.1);
     }
 `;
 
@@ -81,7 +82,7 @@ export default function Inputs() {
 
     return (
         <Container>
-            <h2> Add More Points </h2>
+            <h2> Add More Points !! </h2>
             <MenuButton>
                 <Button
                     onClick={() => handlePost(1000)}
